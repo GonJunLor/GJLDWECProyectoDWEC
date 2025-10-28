@@ -14,6 +14,7 @@
     - [1.3 screen](#13-screen)
     - [1.4 navigator](#14-navigator)
     - [1.5 console](#15-console)
+    - [1.6 objeto window](#16-objeto-window)
   - [2. DOM](#2-dom)
     - [2.1 document](#21-document)
   - [3.Proximamente](#3proximamente)
@@ -128,6 +129,74 @@ Proporciona una interfaz para acceder a la consola de depuración del navegador 
 - count(): Sirve para contar cuántas veces se ha llamado una función o línea de código específica,
 - group(): Crea un nuevo grupo en línea en la consola. Esto sangra los siguientes mensajes de la consola un nivel más, hasta que se llama a console.groupEnd().
 - groupCollapsed(): Crea un nuevo grupo en línea en la consola. Sin embargo, el nuevo grupo se crea contraído. El usuario deberá usar el botón de divulgación para expandirlo.
+
+### 1.6 objeto window
+El objeto window representa una ventana abierta en un navegador.
+
+Si un documento contiene marcos (etiquetas iframe), el navegador crea un objeto de ventana para el documento HTML y un objeto de ventana adicional para cada marco.
+
+**Propiedades** 
+- closed: Devuelve un booleano, true si una ventana está cerrada.
+- console: Devuelve el Objeto Console para la ventana. (Ver también El Objeto Console.)
+- defaultStatus: Obsoleto.
+- document: Devuelve el Objeto Document para la ventana. (Ver también El Objeto Document.)
+- frameElement: Devuelve el frame (marco) en el que se ejecuta la ventana.
+- frames: Devuelve todos los objetos window que se ejecutan en la ventana.
+- history: Devuelve el Objeto History para la ventana. (Ver también El Objeto History.)
+- innerHeight: Devuelve la altura del área de contenido de la ventana (viewport), incluyendo las barras de desplazamiento.
+- innerWidth: Devuelve el ancho del área de contenido de la ventana (viewport), incluyendo las barras de desplazamiento.
+- length: Devuelve el número de elementos iframe en la ventana actual.
+- localStorage: Permite guardar pares clave/valor en un navegador web. Almacena los datos sin fecha de caducidad.
+- location: Devuelve el Objeto Location para la ventana. (Ver también El Objeto Location.)
+- name: Establece o devuelve el nombre de una ventana.
+- navigator: Devuelve el Objeto Navigator para la ventana. (Ver también El Objeto Navigator.)
+- opener: Devuelve una referencia a la ventana que creó la ventana actual.
+- outerHeight: Devuelve la altura de la ventana del navegador, incluyendo barras de herramientas/barras de desplazamiento.
+- outerWidth: Devuelve el ancho de la ventana del navegador, incluyendo barras de herramientas/barras de desplazamiento.
+- pageXOffset: Devuelve los píxeles que el documento actual se ha desplazado (horizontalmente) desde la esquina superior izquierda de la ventana.
+- pageYOffset: Devuelve los píxeles que el documento actual se ha desplazado (verticalmente) desde la esquina superior izquierda de la ventana.
+- parent: Devuelve la ventana padre de la ventana actual.
+- screen: Devuelve el Objeto Screen para la ventana. (Ver también El Objeto Screen.)
+- screenLeft: Devuelve la coordenada horizontal de la ventana relativa a la pantalla.
+- screenTop: Devuelve la coordenada vertical de la ventana relativa a la pantalla.
+- screenX: Devuelve la coordenada horizontal de la ventana relativa a la pantalla.
+- screenY: Devuelve la coordenada vertical de la ventana relativa a la pantalla.
+- sessionStorage: Permite guardar pares clave/valor en un navegador web. Almacena los datos solo para una sesión.
+- scrollX: Un alias de pageXOffset.
+- scrollY: Un alias de pageYOffset.
+- self: Devuelve la ventana actual.
+- status: Obsoleto. Evita usarlo.
+- top: Devuelve la ventana del navegador más alta (la principal o topmost).
+
+**Métodos**
+- addEventListener(): Asocia un manejador de eventos (event handler) a la ventana.
+- alert(): Muestra un cuadro de alerta con un mensaje y un botón de Aceptar.
+- atob(): Decodifica una cadena codificada en base-64.
+- blur(): Quita el foco de la ventana actual.
+- btoa(): Codifica una cadena en base-64.
+- clearInterval(): Limpia un temporizador establecido con setInterval().
+- clearTimeout(): Limpia un temporizador establecido con setTimeout().
+- close(): Cierra la ventana actual.
+- confirm(): Muestra un cuadro de diálogo con un mensaje y un botón de Aceptar y uno de Cancelar.
+- focus(): Establece el foco en la ventana actual.
+- getComputedStyle(): Obtiene los estilos CSS calculados actualmente aplicados a un elemento.
+- getSelection(): Devuelve un objeto Selection que representa el rango de texto seleccionado por el usuario.
+- matchMedia(): Devuelve un objeto MediaQueryList que representa la cadena de consulta de medios CSS especificada.
+- moveBy(): Mueve una ventana relativa a su posición actual.
+- moveTo(): Mueve una ventana a la posición especificada.
+- open(): Abre una nueva ventana del navegador.
+- print(): Imprime el contenido de la ventana actual.
+- prompt(): Muestra un cuadro de diálogo que solicita una entrada al visitante.
+- removeEventListener(): Elimina un manejador de eventos de la ventana.
+- requestAnimationFrame(): Solicita al navegador que llame a una función para actualizar una animación antes del próximo repintado.
+- resizeBy(): Cambia el tamaño de la ventana en la cantidad de píxeles especificada.
+- resizeTo(): Cambia el tamaño de la ventana al ancho y alto especificados.
+- scroll(): Obsoleto. Usa scrollTo() en su lugar.
+- scrollBy(): Desplaza el documento por el número de píxeles especificado.
+- scrollTo(): Desplaza el documento a las coordenadas especificadas.
+- setInterval(): Llama a una función o evalúa una expresión a intervalos especificados (en - - milisegundos).
+- setTimeout(): Llama a una función o evalúa una expresión después de un número específico de milisegundos.
+- stop(): Detiene la carga de la ventana.
 
 ## 2. DOM
 
