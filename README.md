@@ -194,7 +194,7 @@ Si un documento contiene marcos (etiquetas iframe), el navegador crea un objeto 
 - **scroll()**: Obsoleto. Usa scrollTo() en su lugar.
 - **scrollBy()**: Desplaza el documento por el número de píxeles especificado.
 - **scrollTo()**: Desplaza el documento a las coordenadas especificadas.
-- **setInterval()**: Llama a una función o evalúa una expresión a intervalos especificados (en - **- **milisegundos).
+- **setInterval()**: Llama a una función o evalúa una expresión a intervalos especificados (en milisegundos).
 - **setTimeout()**: Llama a una función o evalúa una expresión después de un número específico de milisegundos.
 - **stop()**: Detiene la carga de la ventana.
 

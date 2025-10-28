@@ -46,6 +46,14 @@
                         <h4>Documentación </h4>
                     </a>
                 </article>
+                <article class="practica">
+                    <iframe src="webroot/js/prueba.html"></iframe>
+                    <a href="webroot/js/prueba.html" target="_blank">
+                        <img src="webroot/media/images/ies.png" alt="Banner">
+                        <div class="superpuesto"></div>
+                        <h4>pruebas </h4>
+                    </a>
+                </article>
             </div>
         </section>
     </main>
