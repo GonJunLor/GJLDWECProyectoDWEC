@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>README</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <!-- title: README -->
+<h1 id="cfgs-desarrollo-de-aplicaciones-web">CFGS Desarrollo de Aplicaciones Web</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CFGS DESARROLLO  DE APLICACIONES WEB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="\webroot\media\images\dwec.jpg" alt="Alt"></td>
+</tr>
+<tr>
+<td style="text-align:center">DESARROLLO WEB EN ENTORNO DEL CLIENTE</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="#cfgs-desarrollo-de-aplicaciones-web">CFGS Desarrollo de Aplicaciones Web</a>
+<ul>
+<li><a href="#1-bom">1. BOM</a>
+<ul>
+<li><a href="#11-history">1.1 History</a></li>
+<li><a href="#12-location">1.2 Location</a></li>
+<li><a href="#13-screen">1.3 screen</a></li>
+<li><a href="#14-navigator">1.4 navigator</a></li>
+<li><a href="#15-console">1.5 console</a></li>
+</ul>
+</li>
+<li><a href="#2-dom">2. DOM</a>
+<ul>
+<li><a href="#21-document">2.1 document</a></li>
+</ul>
+</li>
+<li><a href="#3proximamente">3.Proximamente</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-bom">1. BOM</h2>
+<h3 id="11-history">1.1 History</h3>
+<p>Contiene todas las URLs que ha visitado el usuario.
+Se usa con window.history o sólo <strong>history</strong>.</p>
+<p><strong>Métodos</strong></p>
+<ul>
+<li>back(): Carga la página anterior</li>
+</ul>
+<ul>
+<li>forward(): Carga la página siguiente</li>
+<li>go(): Carga una página especifica, se controla por medio de indices.
+Con 0 recarga la misma página, con valores negativos carga paginas anteriores y con valores positivos carga páginas siguientes.<pre><code>Ejemplo: // Para cargar una página que está dos posiciones atrás.
+&lt;button onclick=&quot;history.go(-2)&quot;&gt;Go Back 2 Pages&lt;/button&gt;
+</code></pre>
+</li>
+</ul>
+<p><strong>Propiedades</strong></p>
+<ul>
+<li>length: devuelve el número de paginas almacenadas.</li>
+</ul>
+<h3 id="12-location">1.2 Location</h3>
+<p>Contiene información sobre la URL actual.
+Se usa con window.location o sólo <strong>location</strong>.</p>
+<p><strong>Métodos</strong></p>
+<ul>
+<li>assign():	carga un nuevo documento en la ventana del navegador, haciendo que la URL actual se muestre en la barra de direcciones y se guarde en el historial</li>
+</ul>
+<pre><code>// Redirige el navegador a una nueva página
+window.location.assign(&quot;https://www.ejemplo.com&quot;);
+</code></pre>
+<ul>
+<li>reload():	para recargar la página web actual, similar al botón &quot;actualizar&quot; del navegador.</li>
+</ul>
+<pre><code>// Para asegurar que la página se recargue completamente desde el servidor, puedes usar un parámetro true.
+location.reload(true);
+</code></pre>
+<ul>
+<li>replace():	se utiliza para redirigir al usuario a una nueva URL sin añadir la página actual al historial de navegación</li>
+</ul>
+<pre><code>// Después de ejecutar este código no podrá usar el botón de &quot;atrás&quot; para volver a la página donde se ejecutó el script. 
+window.location.replace(&quot;https://www.ejemplo.com/otra-pagina&quot;);
+</code></pre>
+<p><strong>Propiedades</strong></p>
+<ul>
+<li>hash</li>
+</ul>
+<p>Establece o devuelve la sección de &quot;ancla&quot; o &quot;fragmento&quot; de una URL, que es la parte que sigue al signo de almohadilla (#). Se utiliza para obtener y manipular la parte de la URL que se usa para apuntar a secciones específicas dentro de una misma página web, como al hacer clic en un enlace interno.</p>
+<pre><code>Si la URL es http://www.ejemplo.com/pagina#seccion, window.location.hash devolverá #seccion. Si no hay un hash, devuelve una cadena vacía (&quot;&quot;).
+</code></pre>
+<ul>
+<li>host: Establece o devuelve el hostname y número de puerto de una URL.</li>
+<li>hostname:	Establece o devuelve el hostname de una URL.</li>
+<li>href:	Establece o devuelve la URL entera.</li>
+<li>origin:	Devuelve el protocolo, hostname y número de puerto de una URL.</li>
+<li>pathname:	Establece o devuelve el path name de una URL.</li>
+</ul>
+<pre><code>Ejemplo:
+URL: https://www.ejemplo.com/usuarios/perfil.html?id=123#seccion
+location.pathname: /usuarios/perfil.html
+</code></pre>
+<ul>
+<li>port:	Establece o devuelve el número de puerto de una URL.</li>
+<li>protocol:	Establece o devuelve el protocolo de una URL.</li>
+<li>search:	Establece o devuelve la cadena de consulta de la URL actual.</li>
+</ul>
+<pre><code>Ejemplo: 
+URL: http://ejemplo.com/pagina?id=123, 
+location.search: ?id=123.
+</code></pre>
+<h3 id="13-screen">1.3 screen</h3>
+<p>Contiene información sobre la pantalla del usuario. Se accede a él mediante window.screen o simplemente screen.</p>
+<p><strong>Propiedades</strong></p>
+<ul>
+<li>width:	Ancho total de la pantalla en píxeles.</li>
+<li>height:	Altura total de la pantalla en píxeles.</li>
+<li>availWidth:	Ancho de la pantalla disponible, excluyendo características de la interfaz del sistema operativo (como la barra de tareas).</li>
+<li>availHeight:	Altura de la pantalla disponible, excluyendo características de la interfaz del sistema operativo (como la barra de tareas).</li>
+<li>colorDepth:	Número de bits utilizados para mostrar un color (profundidad de color).</li>
+<li>pixelDepth:	Profundidad de píxeles del dispositivo (similar a colorDepth).</li>
+</ul>
+<h3 id="14-navigator">1.4 navigator</h3>
+<p>Representa el estado y la identidad del agente de usuario (generalmente el navegador). Se accede a él mediante window.navigator o simplemente navigator.</p>
+<p><strong>Métodos</strong>
+Los que tiene estan obsoletos</p>
+<p><strong>Propiedades</strong></p>
+<ul>
+<li>userAgent:	Devuelve la cadena que identifica el navegador y el sistema operativo.</li>
+<li>platform:	Devuelve una cadena que representa la plataforma del navegador (por ejemplo, &quot;Win32&quot;, &quot;Linux&quot;).</li>
+<li>cookieEnabled:	Valor booleano que indica si las cookies están habilitadas.</li>
+<li>onLine:	Valor booleano que indica si el navegador está conectado a internet.</li>
+<li>language:	Devuelve el idioma preferido del navegador.</li>
+<li>hardwareConcurrency:	El número de núcleos de procesador lógicos disponibles.</li>
+<li>geolocation:	Objeto para acceder a la ubicación geográfica del dispositivo.</li>
+<li>mediaDevices:	Interfaz para acceder a dispositivos multimedia disponibles.</li>
+<li>appName, appCodeName, appVersion:	Propiedades heredadas y generalmente obsoletas; es mejor usar userAgent.</li>
+</ul>
+<h3 id="15-console">1.5 console</h3>
+<p>Proporciona una interfaz para acceder a la consola de depuración del navegador (la Consola Web). Se accede a él mediante window.console o simplemente console.</p>
+<p><strong>Métodos</strong></p>
+<ul>
+<li>log():	Muestra un mensaje en la consola (el más común).</li>
+<li>warn():	Muestra un mensaje de advertencia.</li>
+<li>error():	Muestra un mensaje de error.</li>
+<li>info():	Muestra un mensaje informativo.</li>
+<li>table():	Muestra datos tabulares (arrays de objetos) como una tabla interactiva.</li>
+<li>clear():	Limpia la consola.</li>
+<li>time(), timeEnd():	Inicia y finaliza un temporizador con una etiqueta, mostrando el tiempo transcurrido.	Medir el rendimiento de un bloque de código.</li>
+<li>assert():	Registra un error y muestra un mensaje si la aserción (condición) es falsa.</li>
+<li>trace():	Imprime una traza de pila desde el punto donde se llamó.</li>
+<li>dir():	Muestra una lista interactiva de las propiedades del objeto JavaScript especificado.</li>
+<li>count(): Sirve para contar cuántas veces se ha llamado una función o línea de código específica,</li>
+<li>group(): Crea un nuevo grupo en línea en la consola. Esto sangra los siguientes mensajes de la consola un nivel más, hasta que se llama a console.groupEnd().</li>
+<li>groupCollapsed(): Crea un nuevo grupo en línea en la consola. Sin embargo, el nuevo grupo se crea contraído. El usuario deberá usar el botón de divulgación para expandirlo.</li>
+</ul>
+<h2 id="2-dom">2. DOM</h2>
+<h3 id="21-document">2.1 document</h3>
+<h2 id="3proximamente">3.Proximamente</h2>
+<blockquote>
+<p><strong>Gonzalo Junquera Lorenzo</strong><br>
+Curso: 2025/2026<br>
+2º Curso CFGS Desarrollo de Aplicaciones Web</p>
+</blockquote>
+
+            
+            
+        </body>
+        </html>
