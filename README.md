@@ -203,6 +203,8 @@ Si un documento contiene marcos (etiquetas iframe), el navegador crea un objeto 
 ### 2.1 documents
 Cuando un documento HTML se carga en un navegador web, se convierte en un objeto document.
 
+### 2. Elements
+
 
 ## 3.Proximamente
 
