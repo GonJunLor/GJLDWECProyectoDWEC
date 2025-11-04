@@ -205,6 +205,15 @@ Cuando un documento HTML se carga en un navegador web, se convierte en un objeto
 
 ### 2. Elements
 
+**classList**
+
+Propiedad que sirve para gestionar las clases de un elemento html. El uso principal sería para manejar los estilos con clases y css, no cambiando los estilos (con style) desde javascript.
+
+- add() 
+- remove()
+- toogle()
+- length
+- 
 
 ## 3.Proximamente
 
