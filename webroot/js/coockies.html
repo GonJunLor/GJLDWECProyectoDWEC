@@ -10,12 +10,12 @@
         fechaExpiracion = new Date();
         fechaExpiracion.setTime(fechaExpiracion.getTime()+30*24*60*60*1000);
 
-        textoCookie = "visitas=15; expires="+fechaExpiracion.toUTCString();
+        textoCookie = "hola=65;";
+        //document.cookie=textoCookie;
+        textoCookie = "fecha="+fechaExpiracion.toUTCString();
 
-        // textoCookie = "hola=65; expires=0;";
-
-        console.log(textoCookie);
-        document.cookie=textoCookie;
+        // console.log(textoCookie);
+        // document.cookie=textoCookie;
         console.log(document.cookie);
     </script>
 </body>
