@@ -219,6 +219,17 @@ Propiedad que sirve para gestionar las clases de un elemento html. El uso princi
 - length
 - 
 
+**Eventos**
+https://www.w3schools.com/jsref/dom_obj_event.asp
+https://www.w3schools.com/jsref/obj_mouseevent.asp
+- addEventListener
+- stopPropagation()
+- dispatchEvent()
+- contextmenu
+- preventDefault()
+- button (propiedad de evento dentro de la función llamada desde éste)
+- target: devuelve el leemnto sobre el que se ha activado el evento
+
 ## 3.Proximamente
 
 
