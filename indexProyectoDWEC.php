@@ -38,17 +38,33 @@
                         <h4>Proyecto Sopa de letras</h4>
                     </a>
                 </article>
+                <article class="practica">
+                    <iframe src="README.html"></iframe>
+                    <a href="https://github.com/GonJunLor/GJLDWECProyectoDWEC/tree/developerGJL" target="_blank">
+                        <img src="webroot/media/images/ies.png" alt="Banner">
+                        <div class="superpuesto"></div>
+                        <h4>Documentación </h4>
+                    </a>
+                </article>
+                <article class="practica">
+                    <iframe src="webroot/js/prueba.html"></iframe>
+                    <a href="webroot/js/prueba.html" target="_blank">
+                        <img src="webroot/media/images/ies.png" alt="Banner">
+                        <div class="superpuesto"></div>
+                        <h4>pruebas </h4>
+                    </a>
+                </article>
             </div>
         </section>
     </main>
     <footer id="pieEDD">
         <div>
             <a href="/feed/rss.xml" type="application/rss+xml" target="_blank"><i class="fa-solid fa-rss"></i></a>
-            <a href="https://github.com/GonJunLor/108EDDProyectoEDD" target="_blank">
+            <a href="https://github.com/GonJunLor/GJLDWECProyectoDWEC.git" target="_blank">
                 <i class="fa-brands fa-github"></i>
             </a>
             <a href="https://mogutable.com/" target="_blank"><i class="fa-solid fa-house"></i></a>
-            <a id="w3c" href="https://validator.w3.org/check?uri=https://daw108.ieslossauces.es/108EDDProyectoEDD/index.html" target="_blank">          
+            <a id="w3c" href="https://validator.w3.org/check?uri=https://gonzalojunlor.ieslossauces.es/GJLDWECProyectoDWEC/indexProyectoDWEC.php" target="_blank">          
                 <img src="/webroot/media/images/W3C.png" alt="Validado por W3C" width="55" >        
             </a>
         </div>
