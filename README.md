@@ -22,6 +22,10 @@
 ## 1. BOM
 
 ### 1.1 History
+
+https://www.w3schools.com/jsref/obj_history.asp
+https://developer.mozilla.org/es/docs/Web/API/History
+
 Contiene todas las URLs que ha visitado el usuario. 
 Se usa con window.history o sólo **history**.
 
@@ -146,7 +150,7 @@ Si un documento contiene marcos (etiquetas iframe), el navegador crea un objeto 
 - **innerHeight**: Devuelve la altura del área de contenido de la ventana (viewport), incluyendo las barras de desplazamiento.
 - **innerWidth**: Devuelve el ancho del área de contenido de la ventana (viewport), incluyendo las barras de desplazamiento.
 - **length**: Devuelve el número de elementos iframe en la ventana actual.
-- **localStorage**: Permite guardar pares clave/valor en un navegador web. Almacena los datos sin fecha de caducidad.
+- > **localStorage**: Permite guardar pares clave/valor en un navegador web. Almacena los datos sin fecha de caducidad.
 - **location**: Devuelve el Objeto Location para la ventana. (Ver también El Objeto Location.)
 - **name**: Establece o devuelve el nombre de una ventana.
 - **navigator**: Devuelve el Objeto Navigator para la ventana. (Ver también El Objeto Navigator.)
@@ -214,6 +218,17 @@ Propiedad que sirve para gestionar las clases de un elemento html. El uso princi
 - toogle()
 - length
 - 
+
+**Eventos**
+https://www.w3schools.com/jsref/dom_obj_event.asp
+https://www.w3schools.com/jsref/obj_mouseevent.asp
+- addEventListener
+- stopPropagation()
+- dispatchEvent()
+- contextmenu
+- preventDefault()
+- button (propiedad de evento dentro de la función llamada desde éste)
+- target: devuelve el leemnto sobre el que se ha activado el evento
 
 ## 3.Proximamente
 
