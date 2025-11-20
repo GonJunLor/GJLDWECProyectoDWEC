@@ -228,11 +228,29 @@ https://www.w3schools.com/jsref/obj_mouseevent.asp
 - contextmenu
 - preventDefault()
 - button (propiedad de evento dentro de la función llamada desde éste)
-- target: devuelve el leemnto sobre el que se ha activado el evento
+- target: devuelve el elemento sobre el que se ha activado el evento
 
-## 3.Proximamente
+## 3.Uso de formularios
+Forma de acceder al formulario: 
+
+Por nombre:
+````Bash
+# por nombre
+const miFormulario = document.forms['nombre-del-formulario'];
+# Accede al primer formulario de la página (índice 0)
+const primerFormulario = document.forms[0];
+````
+
+De que ya tenemos el formulario podemos acceder a los input con su nombre
+````Bash
+# forma 1
+const primerFormulario = document.forms[0].nombre;
+# forma 2
+const primerFormulario = document.forms[0][nombre];
+````
 
 
+## 4.Proximamente
 
 > **Gonzalo Junquera Lorenzo**  
 > Curso**: 2025/2026  
