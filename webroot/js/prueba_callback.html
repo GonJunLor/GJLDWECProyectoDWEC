@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const tarea1 = (fcallback)=>setTimeout(()=>{
+            console.log("Descargar mapa");
+            fcallback();
+        },3000);
+        const tarea2 = (fcallback)=>setTimeout(()=>{
+            console.log("Rellenar mapa");
+            fcallback();
+        },2000);
+        const tarea3 = (fcallback)=>setTimeout(()=>{
+            console.log("Pintar mapa");
+            fcallback();
+        },5000);
+
+        tarea1();
+        tarea2();
+        tarea3();
+
+        // tarea1(()=>{
+        //     tarea2(()=>{
+        //         tarea3(()=>{
+        //             console.log("fin")
+        //         })
+        //     })
+        // })
+    </script>
+</body>
+</html>
