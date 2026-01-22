@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Infinito Usuarios</title>
+    <style>
+        /* Un poco de estilo para que no se vea plano */
+        body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .tarjeta { background: white; padding: 15px; border-radius: 10px; text-align: center; shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .tarjeta img { border-radius: 50%; border: 3px solid #007bff; }
+    </style>
+</head>
+<body>
+    <h1>Directorio de Usuarios</h1>
+    <div id="lista-usuarios"></div>
+    <script>
+        const url = 'https://randomuser.me/api/?results=10';
+        const contenedor = document.getElementById('lista-usuarios');
+        let cargando = false; // Bandera para evitar múltiples peticiones simultáneas
+
+        async function cargarUsuarios() {
+            if (cargando) return; // Si ya se está cargando, no hacer nada
+            
+            cargando = true;
+            try {
+                const respuesta = await fetch(url);
+                const datos = await respuesta.json();
+                dibujarUsuarios(datos.results);
+            } catch (error) {
+                console.error("Error:", error);
+            } finally {
+                cargando = false; // Liberamos la bandera
+            }
+        }
+
+        function dibujarUsuarios(usuarios) {
+            usuarios.forEach(persona => {
+                const tarjeta = `
+                    <div class="tarjeta">
+                        <img src="${persona.picture.large}" alt="Foto">
+                        <h3>${persona.name.first} ${persona.name.last}</h3>
+                        <p>${persona.email}</p>
+                    </div>
+                `;
+                // Usamos insertAdjacentHTML para no sobrescribir lo anterior, sino añadir al final
+                contenedor.insertAdjacentHTML('beforeend', tarjeta);
+            });
+        }
+
+        // Evento de Scroll
+        window.addEventListener('scroll', () => {
+            // Calculamos si llegamos al final
+            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+            // Si (Lo que bajamos + Lo que vemos) >= (Total de la página - 100px de margen)
+            if (scrollTop + clientHeight >= scrollHeight - 100) {
+                cargarUsuarios();
+            }
+        });
+
+        // Carga inicial
+        cargarUsuarios();
+    </script>
+</body>
+</html>
