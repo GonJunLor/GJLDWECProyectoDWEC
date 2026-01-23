@@ -6,9 +6,21 @@
     <title>Scroll Infinito Usuarios</title>
     <style>
         /* Un poco de estilo para que no se vea plano */
-        body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
-        .tarjeta { background: white; padding: 15px; border-radius: 10px; text-align: center; shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .tarjeta img { border-radius: 50%; border: 3px solid #007bff; }
+        body { 
+            font-family: sans-serif; 
+            background-color: #f4f4f4; 
+            padding: 20px; 
+        }
+        .tarjeta { 
+            background: white; 
+            padding: 15px; 
+            border-radius: 10px; 
+            text-align: center; 
+        }
+        .tarjeta img { 
+            border-radius: 50%; 
+            border: 3px solid #007bff; 
+        }
     </style>
 </head>
 <body>
@@ -50,11 +62,22 @@
 
         // Evento de Scroll
         window.addEventListener('scroll', () => {
+            console.log("deslizando....")
             // Calculamos si llegamos al final
-            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+            // const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+            // console.log(document.documentElement);
+            // console.log("Scrolltop: " + scrollTop);
+            // console.log("Scrolltop: " + document.documentElement.scrollTop);
+            // console.log("clientHeight: " + clientHeight);
+            // console.log("scrollHeight: " + scrollHeight);
+            
+            
 
+            const a = document.documentElement.scrollTop;
+            const b = document.documentElement.clientHeight;
+            const c = document.documentElement.scrollHeight;
             // Si (Lo que bajamos + Lo que vemos) >= (Total de la página - 100px de margen)
-            if (scrollTop + clientHeight >= scrollHeight - 100) {
+            if (a + b >= c - 100) {
                 cargarUsuarios();
             }
         });

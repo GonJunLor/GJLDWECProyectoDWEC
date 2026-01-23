@@ -46,6 +46,14 @@
                         <h4>Documentación</h4>
                     </a>
                 </article>
+                <article class="practica">
+                    <iframe src="webroot/js/scroll.html"></iframe>
+                    <a href="webroot/js/scroll.html" target="_blank">
+                        <img src="webroot/media/images/ies.png" alt="Banner">
+                        <div class="superpuesto"></div>
+                        <h4>Scroll infinito</h4>
+                    </a>
+                </article>
             </div>
         </section>
     </main>
