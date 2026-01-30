@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <img src="../media/images/paisaje.png" alt="">
+    <canvas id="canvas" width=300 height=168 style="background-color: bisque; border: 2px solid black;">
+
+    </canvas>
+    <script>
+        const canva = document.getElementById("canvas");
+        const c = canva.getContext("2d", { willReadFrequently: true });
+
+        // c.fillStyle = "rgb(200,0,0,0.8)";
+        // c.fillRect(100, 100, 200, 100);
+
+        // c.strokeStyle = "green";
+        // c.strokeRect(150, 150, 200, 200);
+
+        var foto = document.createElement("img");
+        foto.src="../media/images/paisaje.png";
+        foto.addEventListener("load",()=>{
+            
+            c.drawImage(foto, 0, 0)
+            console.log(c.getImageData(0,0,300,168));
+
+            imgData = c.getImageData(0,0,300,168);
+            let aFoto = imgData.data;
+            for (let i = 0; i < aFoto.length; i+=4) {
+                aFoto[i] = 210;
+                
+            }
+            c.putImageData(imgData,0,0);
+        })
+
+        
+        
+    </script>
+</body>
+</html>
