@@ -20,7 +20,7 @@
             appearance: none;
             background: transparent; /* Quita el fondo por defecto */
             cursor: pointer;
-            width: 500px;
+            width: 350px;
         }
         /* Para Chrome, Safari y Edge */
         #rojo::-webkit-slider-runnable-track {
@@ -54,7 +54,7 @@
             border-radius: 10px;
             padding: 10px;
             margin: 10px;
-            width: 1460px;
+            width: 950px;
             display: flex;
             gap: 10px;
         }
@@ -67,13 +67,34 @@
             width: 50px;
             height: 50px;
         }
-        #barraHerramientas input:checked + label{
+        #barraHerramientas input[name="colores"]:checked + label{
             border: 3px solid black;
         }
         #barraHerramientas #pintarNegro:checked + label{
             border: 3px solid red;
         }
-
+        #canvas2 {
+            margin: 50px;
+            touch-action: none;
+            -webkit-tap-highlight-color: transparent; /* Evita el destello azul al tocar */
+            user-select: none; /* Evita seleccionar texto accidentalmente mientras dibujas */
+        }
+        .herramienta{
+            background-color: aliceblue;
+            border: 1px solid gray;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .herramienta:hover{
+            background-color: beige;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+        input[name="herramientas"]:checked + .herramienta{
+            background-color: beige;
+            /* border: 3px solid red; */
+        }
     </style>
 </head>
 <body>
@@ -99,12 +120,19 @@
         <label for="pintarAzul" style="background-color: blue;"></label>
         <input type="radio" name="colores" id="pintarAmarillo" value="rgb(255,255,0)">
         <label for="pintarAmarillo" style="background-color: yellow;"></label>
-        <button id="herrRecta">Recta</button>
-        <button id="herrLibre">Libre</button>
-        <button id="herrRectangulo">Rectángulo</button>
+        <input type="radio" name="herramientas" id="herrRecta" value="recta">
+        <label for="herrRecta" class="herramienta">Recta</label>
+        <input type="radio" name="herramientas" id="herrLibre" value="libre">
+        <label for="herrLibre" class="herramienta">Libre</label>
+        <input type="radio" name="herramientas" id="herrRectangulo" value="rectangulo">
+        <label for="herrRectangulo" class="herramienta">Rect</label>
+        <button id="btnSpen">Modo: Todos</button>
+        <button id="btnBorrar">Borrar Lienzo</button>
     </div>
     <div id="lienzo">
-        <canvas id="canvas2" width=1500 height=550 style="background-color: bisque; border: 2px solid black;"></canvas>
+        <canvas id="canvas2" 
+        width="1000" height="1000"
+        style="background-color: bisque; border: 2px solid black;"></canvas>
     </div>
 
     <script>
@@ -133,13 +161,15 @@
                 colorPincel = e.target.value;
             });
         });
-        var herrRecta = document.getElementById('herrRecta');
-        herrRecta.addEventListener('click',()=>{
-            tipoHerramienta='recta';
-            herrRecta.style.background = colorPincel;
+        document.querySelectorAll('input[name="herramientas"]').forEach(input => {
+            input.addEventListener('change', (e) => {
+                tipoHerramienta = e.target.value;
+                console.log('herr selec: ' + tipoHerramienta);
+            });
         });
-        document.getElementById('herrLibre').addEventListener('click',()=>tipoHerramienta='libre');
-        document.getElementById('herrRectangulo').addEventListener('click',()=>tipoHerramienta='rectangulo');
+        document.getElementById('btnBorrar').addEventListener('click',()=>{
+            lienzo.clearRect(0, 0, canva2.width, canva2.height);
+        })
 
         colorPincel = "rgb(0,0,0)";
 
@@ -148,26 +178,87 @@
 
         // lienzo.fillStyle = colorPincel;
 
-        canva2.addEventListener("mousedown",(e)=>{
-            xAnterior = e.offsetX;
-            yAnterior = e.offsetY;
+        // Eventos para el ratón
+        // canva2.addEventListener("mousedown",(e)=>{
+        //     xAnterior = e.offsetX;
+        //     yAnterior = e.offsetY;
 
-            if (tipoHerramienta=='recta' || tipoHerramienta === 'rectangulo') {
-                /* Guardo el estado del canva porque voy a estar dibujando la recta constantemente solo para visualizarla
-                pero cuando suelte el ratón quiero que dibuje solo la ultima posición, para ello restaura el canva y dibuja la recta */
+        //     if (tipoHerramienta=='recta' || tipoHerramienta === 'rectangulo') {
+        //         /* Guardo el estado del canva porque voy a estar dibujando la recta constantemente solo para visualizarla
+        //         pero cuando suelte el ratón quiero que dibuje solo la ultima posición, para ello restaura el canva y dibuja la recta */
+        //         snapshot = lienzo.getImageData(0, 0, canva2.width, canva2.height);
+        //     } 
+        //     canva2.addEventListener("mousemove",movimiento)
+        // })
+
+        // canva2.addEventListener("mouseup",()=>{
+        //     canva2.removeEventListener("mousemove",movimiento)
+        // })
+
+        // canva2.addEventListener("mouseover",()=>{
+        //     canva2.removeEventListener("mousemove",movimiento)
+        // })
+        
+        // Eventos para pantalla tactil
+        // canva2.addEventListener("touchstart",(e)=>{
+        //     if (e.cancelable) e.preventDefault();
+
+        //     const rect = canva2.getBoundingClientRect();
+        //     xAnteriorTactil = e.touches[0].clientX - rect.left;
+        //     yAnteriorTactil = e.touches[0].clientY - rect.top;
+
+        //     if (tipoHerramienta=='recta' || tipoHerramienta === 'rectangulo') {
+        //         /* Guardo el estado del canva porque voy a estar dibujando la recta constantemente solo para visualizarla
+        //         pero cuando suelte el ratón quiero que dibuje solo la ultima posición, para ello restaura el canva y dibuja la recta */
+        //         snapshot = lienzo.getImageData(0, 0, canva2.width, canva2.height);
+        //     } 
+        //     canva2.addEventListener("touchmove",movimientoTactil, { passive: false })
+        // }, { passive: false });
+
+        // canva2.addEventListener("touchend",()=>{
+        //     if (e.cancelable) e.preventDefault();
+        //     canva2.removeEventListener("touchmove",movimientoTactil, { passive: false })
+        // }, { passive: false });
+
+        // Eventos raton, tactil y spen a la vez
+        // Variables de control
+        let snapshot;
+        let xAnterior, yAnterior;
+        let soloSpen = false;
+
+        const btnSpen = document.getElementById('btnSpen');
+        btnSpen.addEventListener('click', () => {
+            soloSpen = !soloSpen;
+            btnSpen.textContent = soloSpen ? "Modo: Solo S Pen" : "Modo: Todos";
+            btnSpen.style.backgroundColor = soloSpen ? "#4d94ff" : "";
+        });
+
+        // Evento de inicio (unificado)
+        canva2.addEventListener("pointerdown", (e) => {
+            // Filtro para S Pen
+            if (soloSpen && e.pointerType !== 'pen') return;
+
+            // Esto asegura que el evento siga al puntero aunque salga un poco del canvas
+            canva2.setPointerCapture(e.pointerId);
+
+            const rect = canva2.getBoundingClientRect();
+            xAnterior = e.clientX - rect.left;
+            yAnterior = e.clientY - rect.top;
+
+            if (tipoHerramienta === 'recta' || tipoHerramienta === 'rectangulo') {
                 snapshot = lienzo.getImageData(0, 0, canva2.width, canva2.height);
-            } 
-            canva2.addEventListener("mousemove",movimiento)
-        })
+            }
 
-        canva2.addEventListener("mouseup",()=>{
-            canva2.removeEventListener("mousemove",movimiento)
-        })
+            canva2.addEventListener("pointermove", movimientoPointer);
+        });
 
-        canva2.addEventListener("mouseover",()=>{
-            canva2.removeEventListener("mousemove",movimiento)
-        })
-          
+        // Evento de fin (unificado)
+        canva2.addEventListener("pointerup", (e) => {
+            canva2.releasePointerCapture(e.pointerId);
+            canva2.removeEventListener("pointermove", movimientoPointer);
+        });
+
+        // Funciones
         function movimiento(e) {
             
             lienzo.lineWidth = 5;
@@ -199,6 +290,91 @@
                 lienzo.strokeRect(xAnterior, yAnterior,e.offsetX-xAnterior, e.offsetY-yAnterior);
                 lienzo.stroke();
             } 
+        }
+
+        function movimientoTactil(e) {
+            if (e.cancelable) e.preventDefault();
+            
+            lienzo.lineWidth = 5;
+            lienzo.lineJoin = "round"; // Para que las esquinas sean suaves
+            lienzo.lineCap = "round";  // Para que el trazo no sea cuadrado
+            lienzo.strokeStyle = colorPincel;
+
+            const rect = canva2.getBoundingClientRect();
+            x = e.touches[0].clientX - rect.left;
+            y = e.touches[0].clientY - rect.top;
+            
+            if (tipoHerramienta=='libre') {
+                lienzo.beginPath();
+                // Movemos al punto donde estaba el mouse hace un milisegundo
+                lienzo.moveTo(xAnteriorTactil, yAnteriorTactil); 
+                // Trazamos hasta la posición actual
+                lienzo.lineTo(x, y); 
+                lienzo.stroke();
+                // Actualizamos el punto anterior para el siguiente movimiento
+                xAnteriorTactil = x;
+                yAnteriorTactil = y;
+            } else if(tipoHerramienta === 'recta'){
+                // Restauramos el dibujo original para borrar la línea "fantasma" anterior
+                lienzo.putImageData(snapshot, 0, 0);
+                lienzo.beginPath();
+                lienzo.moveTo(xAnteriorTactil, yAnteriorTactil);
+                lienzo.lineTo(x, y);
+                lienzo.stroke();
+            } else if(tipoHerramienta === 'rectangulo'){
+                // Restauramos el dibujo original para borrar la línea "fantasma" anterior
+                lienzo.putImageData(snapshot, 0, 0);
+                lienzo.beginPath();
+                lienzo.strokeRect(xAnteriorTactil, yAnteriorTactil,x-xAnteriorTactil, y-yAnteriorTactil);
+                lienzo.stroke();
+            } 
+        }
+
+        function movimientoPointer(e) {
+            // Si estamos en modo solo lápiz y detecta un dedo/ratón, no hace nada
+            if (soloSpen && e.pointerType !== 'pen') return;
+
+            // Prevenir scroll si es posible
+            if (e.cancelable) e.preventDefault();
+
+            const rect = canva2.getBoundingClientRect();
+            const xActual = e.clientX - rect.left;
+            const yActual = e.clientY - rect.top;
+
+            // AJUSTE DE GROSOR: 
+            // Si es pen, usamos la presión (e.pressure va de 0 a 1). 
+            // Si es ratón o dedo, e.pressure suele ser 0.5 o 0, así que ponemos un mínimo.
+            let grosorBase = 5;
+            // Si hay presión (S Pen), multiplicamos. Si no (ratón), usamos grosor base.
+            lienzo.lineWidth = (e.pointerType === 'pen' && e.pressure > 0) ? (grosorBase * e.pressure * 3) : grosorBase;
+
+            // Evitamos que el grosor sea invisible
+            if (lienzo.lineWidth < 1) lienzo.lineWidth = 2;
+
+            lienzo.lineJoin = "round";
+            lienzo.lineCap = "round";
+            lienzo.strokeStyle = colorPincel;
+
+            if (tipoHerramienta === 'libre') {
+                lienzo.beginPath();
+                lienzo.moveTo(xAnterior, yAnterior);
+                lienzo.lineTo(xActual, yActual);
+                lienzo.stroke();
+                
+                xAnterior = xActual;
+                yAnterior = yActual;
+            } else if (tipoHerramienta === 'recta') {
+                lienzo.putImageData(snapshot, 0, 0);
+                lienzo.beginPath();
+                lienzo.moveTo(xAnterior, yAnterior);
+                lienzo.lineTo(xActual, yActual);
+                lienzo.stroke();
+            } else if (tipoHerramienta === 'rectangulo') {
+                lienzo.putImageData(snapshot, 0, 0);
+                lienzo.beginPath();
+                lienzo.strokeRect(xAnterior, yAnterior, xActual - xAnterior, yActual - yAnterior);
+                // lienzo.stroke();
+            }
         }
 
         function zonaImagenes() {
