@@ -43,7 +43,23 @@
                     <a href="https://github.com/GonJunLor/GJLDWECProyectoDWEC/tree/developerGJL" target="_blank">
                         <img src="webroot/media/images/ies.png" alt="Banner">
                         <div class="superpuesto"></div>
-                        <h4>Documentación </h4>
+                        <h4>Documentación</h4>
+                    </a>
+                </article>
+                <article class="practica">
+                    <iframe src="webroot/js/scroll.html"></iframe>
+                    <a href="webroot/js/scroll.html" target="_blank">
+                        <img src="webroot/media/images/ies.png" alt="Banner">
+                        <div class="superpuesto"></div>
+                        <h4>Scroll infinito</h4>
+                    </a>
+                </article>
+                <article class="practica">
+                    <iframe src="webroot/js/canvas.html"></iframe>
+                    <a href="webroot/js/canvas.html" target="_blank">
+                        <img src="webroot/media/images/ies.png" alt="Banner">
+                        <div class="superpuesto"></div>
+                        <h4>Canvas</h4>
                     </a>
                 </article>
             </div>
